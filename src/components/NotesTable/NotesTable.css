@@ -1,0 +1,45 @@
+.notes {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.notes-table {
+    width: 80%;
+}
+
+table, th, td {
+    border-collapse: collapse;
+}
+
+.notes-table-header {
+    background: silver;
+    height: 50px;
+}
+
+tbody tr {
+    background: #c3e0d2;
+    border-top: 10px solid white;
+    height: 40px;
+}
+
+th:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+th:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+tr:first-child th:first-child {
+    border-top-left-radius: 5px;
+}
+
+tr:first-child th:last-child {
+    border-top-right-radius: 5px;
+}

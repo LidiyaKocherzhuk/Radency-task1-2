@@ -1,0 +1,14 @@
+.note-form {
+    display: none;
+}
+
+.note-form-show {
+    display: block;
+    position: absolute;
+    background: rgb(255, 255, 255);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}

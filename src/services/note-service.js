@@ -1,5 +1,3 @@
-const BASE_URL = '';
+import {NotesData} from '../api/notes-data.js';
 
-export const api = {
-  getData: () => {},
-};
+export const data = NotesData;
