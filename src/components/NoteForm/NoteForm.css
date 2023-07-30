@@ -5,12 +5,30 @@
 .note-form-show {
     display: block;
     position: absolute;
-    background: rgb(255, 255, 255);
     width: 70%;
-    padding: 20px;
+    padding: 50px;
+    background: #fcfcfc;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 #575757;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    row-gap: 10px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    transition: 0.5s;
+}
+
+.close-btn:hover {
+    cursor: pointer;
+    font-size: 20px;
 }

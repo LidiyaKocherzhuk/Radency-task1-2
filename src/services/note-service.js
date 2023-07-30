@@ -1,39 +1,32 @@
-import {NotesData} from '../api/notes-data.js';
-import {archiveApi} from "./archive-service";
+import {NotesData} from '../api';
+import {archiveApi} from './archive-service';
 
 export const api = {
   getAll: () => NotesData,
-  
-  getById: (id) => NotesData.find(note => note.id === id),
   
   save: (data) => {
     NotesData.push(data);
     return data;
   },
   
-  update: (id, data) => NotesData.map((note, index, array) => {
+  update: (id, data) => NotesData.find((note, index, array) => {
     if (id === note.id && index) {
       array.splice(index, 1, data);
+      return note;
     }
-    return array;
   }),
   
   archive: (id) => {
-    const note = NotesData.find((note, index, array) => {
-      if (note.id === id) {
-        array.splice(index, 1);
-        return note;
-      }
-    })
-  
+    const note = api.delete(id);
+    
     archiveApi.save(note);
     return note;
   },
   
   delete: (id) => NotesData.find((note, index, array) => {
-      if (note.id === id) {
-        array.splice(index, 1);
-        return note;
-      }
-    }),
+    if (note.id === id) {
+      array.splice(index, 1);
+      return note;
+    }
+  }),
 };

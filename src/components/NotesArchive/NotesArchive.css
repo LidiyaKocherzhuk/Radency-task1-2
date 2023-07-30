@@ -1,0 +1,30 @@
+.notesArchive {
+    display: none;
+}
+
+.notesArchive-show {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.notesArchive-table {
+    width: 90%;
+}
+
+.notesArchive-table-header {
+    background: silver;
+    height: 50px;
+}
+
+.notesArchive h2 {
+    width: 90%;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 10px;
+    color: #acacac;
+}

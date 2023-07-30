@@ -1,41 +1,33 @@
 import * as React from 'react';
 import {useEffect, useState} from 'react';
-import {BiSolidPencil} from "react-icons/bi";
-import {IoArchiveSharp} from "react-icons/io5";
-import {BsFillTrash3Fill} from "react-icons/bs";
+import {IoArchiveSharp} from 'react-icons/io5';
+import {BsFillTrash3Fill} from 'react-icons/bs';
 
 import './Notes.css';
-import {api} from '../../services/note-service';
-import {NoteForm} from "../NoteForm/NoteForm";
-import {NotesArchive} from "../NotesArchive/NotesArchive";
-import {archiveApi} from "../../services/archive-service";
+import {api} from '../../services';
+import {NoteForm} from '../NoteForm/NoteForm';
+import {NotesArchive} from '../NotesArchive/NotesArchive';
+import {Note} from '../Note/Note';
 
 const Notes = () => {
   const [notes, setNotes] = useState([]);
-  const [archiveNotes, setArchiveNotes] = useState([]);
   const [note, setNote] = useState({});
-  console.log(notes);
+  const [updateNote, setUpdateNote] = useState({});
   
   useEffect(() => {
     setNotes(api.getAll());
-    setArchiveNotes(archiveApi.getAll());
-  }, [note.id]);
+  }, [note]);
   
   const createNote = () => {
     const creteForm = document.getElementsByClassName("note-form")[0];
     creteForm.classList.toggle("note-form-show");
   }
   
-  const updateNote = () => {
-  }
-  
-  const archiveNote = (id) => {
-    setNote(api.archive(id));
-  }
-  
-  const deleteNote = (id) => {
-    setNote(api.delete(id));
-  }
+  const showArchivedNotes = () => {
+    const archive = document.getElementsByClassName("notesArchive")[0];
+    console.log(archive);
+    archive.classList.toggle("notesArchive-show");
+  };
   
   return (
       <div className={"notes"}>
@@ -72,55 +64,29 @@ const Notes = () => {
           </thead>
           
           <tbody>
-          {notes.map((note, index) =>
-              
-              <tr key={note.id}>
-                
-                <td>
-                  {index + 1}
-                </td>
-                <td>
-                  {note.name}
-                </td>
-                <td>
-                  {note.content}
-                </td>
-                <td>
-                  {note.category}
-                </td>
-                <td>
-                  {note.created}
-                </td>
-                <td>
-                  {note.dates}
-                </td>
-                <td onClick={updateNote}>
-                  <BiSolidPencil/>
-                </td>
-                <td onClick={() => archiveNote(note.id)}>
-                  <IoArchiveSharp/>
-                </td>
-                <td onClick={() => deleteNote(note.id)}>
-                  <BsFillTrash3Fill/>
-                </td>
-              
-              </tr>
-          )}
+          
+          {
+            notes.map((note, index) => <Note
+                key={note.id}
+                note={note}
+                index={index}
+                setNote={setNote}
+                setUpdateNote={setUpdateNote}
+            />)
+          }
+          
           </tbody>
         
         </table>
-  
-        <div className={"create-btn"}>
+        
+        <div className={"btns"}>
           <button onClick={createNote}>Create Note</button>
+          <button onClick={showArchivedNotes}>Archive</button>
         </div>
         
-        <NoteForm id={notes.length} addNote={setNote}/>
+        <NotesArchive note={note} setNote={setNote}/>
+        <NoteForm setNote={setNote} updateNote={updateNote} setUpdateNote={setUpdateNote}/>
         
-        {/*{archiveNotes.length*/}
-        {/*    ? <NotesArchive note={note}/>*/}
-        {/*    : undefined*/}
-        {/*}*/}
-      
       </div>
   );
 };
