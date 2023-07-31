@@ -8,6 +8,7 @@ import {api} from '../../services';
 import {NoteForm} from '../NoteForm/NoteForm';
 import {NotesArchive} from '../NotesArchive/NotesArchive';
 import {Note} from '../Note/Note';
+import {NoteSummary} from "../NoteSummary/NoteSummary";
 
 const Notes = () => {
   const [notes, setNotes] = useState([]);
@@ -85,6 +86,7 @@ const Notes = () => {
         </div>
         
         <NotesArchive note={note} setNote={setNote}/>
+        <NoteSummary note={note} setNote={setNote}/>
         <NoteForm setNote={setNote} updateNote={updateNote} setUpdateNote={setUpdateNote}/>
         
       </div>

@@ -1,35 +1,59 @@
 export const NotesData = [
   {
     "id": 0,
-    "name": "shopping list",
+    "name": "Shopping list",
     "content": "tomato, onion",
-    "category": "task",
-    "created": "27.07.23",
-    "dates": "27.07.23"
+    "category": "Task",
+    "created": "Mon Jul 31 2023",
+    "dates": "Mon Jul 31 2023"
   },
   {
     "id": 1,
-    "name": "shopping list",
-    "content": "tomato, onion",
-    "category": "task",
-    "created": "27.07.23",
-    "dates": "27.07.23"
+    "name": "The theory of evolution",
+    "content": "The evolution...",
+    "category": "Random Thought",
+    "created": "Mon Jul 31 2023",
+    "dates": "Mon Jul 31 2023"
     
   },
   {
     "id": 2,
-    "name": "shopping list",
-    "content": "tomato, onion",
-    "category": "task",
-    "created": "27.07.23",
-    "dates": "27.07.23"
+    "name": "New Feature",
+    "content": "Implement new feature...",
+    "category": "Idea",
+    "created": "Mon Jul 31 2023",
+    "dates": "Mon Jul 31 2023"
   },
   {
     "id": 3,
-    "name": "shopping list",
-    "content": "tomato, onion",
-    "category": "task",
-    "created": "27.07.23",
-    "dates": "27.07.23"
+    "name": "Learn",
+    "content": "Improvement english speaking...",
+    "category": "Task",
+    "created": "Mon Jul 31 2023",
+    "dates": "Mon Jul 31 2023"
+  },
+  {
+    "id": 4,
+    "name": "Dentist",
+    "content": "Go to the dentist",
+    "category": "Task",
+    "created": "Mon Jul 31 2023",
+    "dates": "Mon Jul 31 2023"
+  },
+  {
+    "id": 5,
+    "name": "William Gaddis",
+    "content": "Power doesn't co...",
+    "category": "Quote",
+    "created": "Mon Jul 31 2023",
+    "dates": "Mon Jul 31 2023"
+  },
+  {
+    "id": 6,
+    "name": "Books",
+    "content": "Read mew book",
+    "category": "Task",
+    "created": "Mon Jul 31 2023",
+    "dates": "Mon Jul 31 2023"
   }
 ]

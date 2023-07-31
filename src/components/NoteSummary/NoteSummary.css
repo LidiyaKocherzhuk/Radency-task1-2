@@ -1,0 +1,28 @@
+.notesSummary {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /*text-align: start;*/
+}
+
+.notesSummary-table {
+    width: 90%;
+}
+
+.notesSummary-table-header {
+    background: silver;
+    height: 50px;
+}
+
+.notesSummary th,
+.notesSummary td {
+    width: 30%;
+}
+
+/*.notesSummary td:first-child {*/
+/*    width: 5%;*/
+/*    text-align: start;*/
+/*}*/

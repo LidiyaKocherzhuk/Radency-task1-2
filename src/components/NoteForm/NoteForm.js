@@ -6,6 +6,7 @@ import {v4 as uuid} from 'uuid';
 
 import './NoteForm.css';
 import {api} from '../../services';
+import {categories} from "../../api";
 
 export const NoteForm = ({setNote, updateNote, setUpdateNote}) => {
   const {handleSubmit, register, reset, setValue} = useForm();
@@ -50,7 +51,9 @@ export const NoteForm = ({setNote, updateNote, setUpdateNote}) => {
         <form onSubmit={handleSubmit(getFormData)}>
           <label>Name <input type="text" {...register("name")}/></label>
           <label>Content <input type="text" {...register("content")}/></label>
-          <label>Category <input type="text" {...register("category")}/></label>
+          <label>Category <select{...register("category")}>
+            {categories.map(item => <option value={item.category}>{item.category}</option>)}
+          </select></label>
           
           {updateNote.id &&
           <label>Dates
