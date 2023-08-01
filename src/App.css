@@ -1,3 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+}
+
+button {
+    padding: 5px 25px;
+    font-size: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    border: 1px solid #a7a7a7;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #dedede;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    padding: 0 3px;
+}
+
+th:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+th:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+tr:first-child th:first-child {
+    border-top-left-radius: 5px;
+}
+
+tr:first-child th:last-child {
+    border-top-right-radius: 5px;
+}
+
+.error {
+    color: #fc6363;
 }

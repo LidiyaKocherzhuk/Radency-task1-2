@@ -1,0 +1,34 @@
+.notes {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.notes-table {
+    width: 90%;
+}
+
+.notes-table-header {
+    background: silver;
+    height: 50px;
+}
+
+tbody tr {
+    background: #c3e0d2;
+    border-top: 10px solid white;
+    height: 40px;
+}
+
+.btns {
+    width: 90%;
+    text-align: end;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    row-gap: 10px;
+}
