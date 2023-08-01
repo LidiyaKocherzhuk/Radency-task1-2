@@ -2,16 +2,21 @@ import * as React from 'react';
 import {useEffect, useState} from 'react';
 
 import './NoteSummary.css';
-import {api, archiveApi} from "../../services";
-import {categories} from "../../api";
+import {api, archiveApi} from '../../services';
+import {categories} from '../../api';
 
-const NoteSummary = ({note, setNote}) => {
+const NoteSummary = ({note}) => {
   const [notes, setNotes] = useState({});
   const [archiveNotes, setArchiveNotes] = useState({});
+  const [error, setError] = useState("");
   
   useEffect(() => {
-    setNotes(sumData(api.getAll()));
-    setArchiveNotes(sumData(archiveApi.getAll()));
+    try {
+      setNotes(sumData(api.getAll()));
+      setArchiveNotes(sumData(archiveApi.getAll()));
+    } catch (e) {
+      setError(e.message);
+    }
   }, [note]);
   
   const sumData = (noteData) => {
@@ -25,11 +30,17 @@ const NoteSummary = ({note, setNote}) => {
     }, {});
   }
   
-  console.log(notes, archiveNotes)
+  if (error) {
+    return (
+        <div className={"error"}>
+          <h3>{error}</h3>
+        </div>
+    );
+  }
   
   return (
       <div className={"notesSummary"}>
-   
+        
         <table className={"notesSummary-table"}>
           
           <thead>
@@ -43,23 +54,21 @@ const NoteSummary = ({note, setNote}) => {
             <th>
               archived
             </th>
-            <th></th>
           </tr>
           </thead>
           
           <tbody>
           {
             categories.map((item, index) => <tr key={index}>
-              <td>{item.category}</td>
-              <td>{notes[item.category]}</td>
-              <td>{archiveNotes[item.category]}</td>
-              <td></td>
+              <td>{item}</td>
+              <td>{notes[item]}</td>
+              <td>{archiveNotes[item]}</td>
             </tr>)
           }
           </tbody>
         
         </table>
-    
+      
       </div>
   );
 };

@@ -5,18 +5,23 @@ import {BsFillTrash3Fill} from 'react-icons/bs';
 
 import './Notes.css';
 import {api} from '../../services';
+import {Note} from '../Note/Note';
 import {NoteForm} from '../NoteForm/NoteForm';
 import {NotesArchive} from '../NotesArchive/NotesArchive';
-import {Note} from '../Note/Note';
-import {NoteSummary} from "../NoteSummary/NoteSummary";
+import {NoteSummary} from '../NoteSummary/NoteSummary';
 
 const Notes = () => {
   const [notes, setNotes] = useState([]);
   const [note, setNote] = useState({});
   const [updateNote, setUpdateNote] = useState({});
+  const [error, setError] = useState("");
   
   useEffect(() => {
-    setNotes(api.getAll());
+    try {
+      setNotes(api.getAll());
+    }catch (e) {
+      setError(e.message);
+    }
   }, [note]);
   
   const createNote = () => {
@@ -29,6 +34,14 @@ const Notes = () => {
     console.log(archive);
     archive.classList.toggle("notesArchive-show");
   };
+  
+  if (error) {
+    return (
+        <div className={"error"}>
+          <h3>{error}</h3>
+        </div>
+    );
+  }
   
   return (
       <div className={"notes"}>
@@ -88,7 +101,7 @@ const Notes = () => {
         <NotesArchive note={note} setNote={setNote}/>
         <NoteSummary note={note} setNote={setNote}/>
         <NoteForm setNote={setNote} updateNote={updateNote} setUpdateNote={setUpdateNote}/>
-        
+      
       </div>
   );
 };

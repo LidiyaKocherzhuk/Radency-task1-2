@@ -46,3 +46,7 @@ tr:first-child th:first-child {
 tr:first-child th:last-child {
     border-top-right-radius: 5px;
 }
+
+.error {
+    color: #fc6363;
+}

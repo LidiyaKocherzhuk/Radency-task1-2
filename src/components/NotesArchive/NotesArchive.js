@@ -7,10 +7,23 @@ import {Note} from '../Note/Note';
 
 const NotesArchive = ({note, setNote}) => {
   const [archiveNotes, setArchiveNotes] = useState([]);
+  const [error, setError] = useState("");
   
   useEffect(() => {
-    setArchiveNotes(archiveApi.getAll());
+    try {
+      setArchiveNotes(archiveApi.getAll());
+    } catch (e) {
+      setError(e.message);
+    }
   }, [note]);
+  
+  if (error) {
+    return (
+        <div className={"error"}>
+          <h3>{error}</h3>
+        </div>
+    );
+  }
   
   return (
       <div className={"notesArchive"}>

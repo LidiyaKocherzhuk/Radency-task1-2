@@ -6,7 +6,7 @@ import {v4 as uuid} from 'uuid';
 
 import './NoteForm.css';
 import {api} from '../../services';
-import {categories} from "../../api";
+import {categories} from '../../api';
 
 export const NoteForm = ({setNote, updateNote, setUpdateNote}) => {
   const {handleSubmit, register, reset, setValue} = useForm();
